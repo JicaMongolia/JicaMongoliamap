@@ -211,12 +211,12 @@
             
             const groupedById = new Map();
             parsedData.forEach(row => {
-                const id = row.id;
+                const id = `${row.id}_${row.mn_city}`;
                 if (!id) return;
 
                 if (!groupedById.has(id)) {
                     groupedById.set(id, {
-                        id: parseInt(id, 10),
+                        id: row.id,
                         jp_city: row.jp_city, mn_city: row.mn_city,
                         jp_lat: parseFloat(row.jp_lat), jp_lon: parseFloat(row.jp_lon),
                         mn_lat: parseFloat(row.mn_lat), mn_lon: parseFloat(row.mn_lon),
